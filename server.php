@@ -31,7 +31,7 @@ class Server
 				$date = ((array)$titleArr['list'][$i])['mail_date'];
 				$subject = ((array)$titleArr['list'][$i])['mail_subject'];
 				$from = ((array)$titleArr['list'][$i])['mail_from'];
-				$_SESSION['title'] = "- Date: ".$date." Subject: ".$subject." From: ".$from;
+				$_SESSION['title'] = "- Time: ".date('H:i:s',(strtotime($date)+10800))." Subject: ".$subject." From: ".$from;
 				$_SESSION['email_id'][$i] = $email_id;
 
 				$parametrs['email_id'] = $email_id;
