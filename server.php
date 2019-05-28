@@ -54,11 +54,16 @@ class Server
 	}
 
 	function clearMessages(){
-		if (isset($_SESSION['email_id'])) {
-			$parametrs['email_ids']	= $_SESSION['email_id'];
-			api_call("del_email", $parametrs);
+		if (isset($_SESSION['mail'])) {
+			if (isset($_SESSION['email_id'])) {
+				$parametrs['email_ids']	= $_SESSION['email_id'];
+				api_call("del_email", $parametrs);
+			}
+			$_SESSION['messages'] = "<h3>You have no messages</h3>";
+		} else {
+			$_SESSION['messages'] = "";
+			$_SESSION['mail'] = "";
 		}
-		$_SESSION['messages'] = "<h3>You have no messages</h3>";
 	}
 }
 ?>
